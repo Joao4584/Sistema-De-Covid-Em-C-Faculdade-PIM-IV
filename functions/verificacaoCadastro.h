@@ -4,4 +4,5 @@
 
 int verificarLetras(char *palavras){
 
+//sfkjbfkjdb,gshg
 }
