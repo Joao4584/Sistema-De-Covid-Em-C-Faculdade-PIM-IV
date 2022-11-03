@@ -24,7 +24,8 @@ void NewCadastro(){
 
  int ExecNomePaciente(){
 
-    return 1;
+    
+    
  }
 
  
