@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "minhasconfigdeclaration.h": "c",
+        "string.h": "c",
+        "minhasconfig.h": "c",
+        "windows.h": "c",
+        "stdio.h": "c",
+        "components.c": "cpp",
+        "widgets.h": "c",
+        "verificacaocadastro.h": "c"
+    }
+}
