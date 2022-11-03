@@ -13,7 +13,6 @@ int verificarLetras(char *palavras){
             // Se a string tiver caracter ou numero
             return 0;
         }
-
     }
    }
 
