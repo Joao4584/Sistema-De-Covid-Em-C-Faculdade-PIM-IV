@@ -18,8 +18,8 @@ void main(void){
     // Configurations
        InitConfigs();
     // Init System
-      InicioDeLogin();
-      //NewCadastro();
+      //InicioDeLogin();
+      NewCadastro();
 
 }
 
@@ -53,6 +53,7 @@ void InicioDeLogin(){
 // Se a senha estiver incorreta executa o sistema
 void SenhaIncorreta(){
     system("cls");
+    
     TituloPersonalizado("         Senha ou Login Incorretos..      ");
 
     int opcao;

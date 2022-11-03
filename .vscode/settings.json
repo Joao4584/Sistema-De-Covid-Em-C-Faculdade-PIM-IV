@@ -8,6 +8,7 @@
         "stdio.h": "c",
         "components.c": "cpp",
         "widgets.h": "c",
-        "verificacaocadastro.h": "c"
+        "verificacaocadastro.h": "c",
+        "configs.h": "c"
     }
 }

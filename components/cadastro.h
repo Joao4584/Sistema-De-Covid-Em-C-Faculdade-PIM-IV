@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 typedef struct {
     // Dados do Paciente
     int telefonePaciente, cpfPaciente, diaNascimento, mesNascimento, anoNascimento;
@@ -23,9 +24,24 @@ void NewCadastro(){
 }
 
  int ExecNomePaciente(){
+    int result;
 
+    printf("\n\n Nome do Paciente (Sem Acento):");
+
+    scanf("%s", paciente.nomePaciente);
+
+    if(verificarLetras(paciente.nomePaciente)){
+        
+    }else{
+        printf("\n\n Contem numeros ou caracteres especiais em seu nome, tente novamente");
+        ExecNomePaciente();
+    } 
     
-    
+ }
+
+
+ void ExecCpfPaciente(void){
+
  }
 
  
