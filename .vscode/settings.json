@@ -9,6 +9,7 @@
         "components.c": "cpp",
         "widgets.h": "c",
         "verificacaocadastro.h": "c",
-        "configs.h": "c"
+        "configs.h": "c",
+        "ctype.h": "c"
     }
 }

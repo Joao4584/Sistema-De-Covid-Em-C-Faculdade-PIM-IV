@@ -28,21 +28,41 @@ void NewCadastro(){
 
     printf("\n\n Nome do Paciente (Sem Acento):");
 
-    scanf("%s", paciente.nomePaciente);
+    scanf("%s", &paciente.nomePaciente);
 
     if(verificarLetras(paciente.nomePaciente)){
-        
+        ExecDataNascimentoPaciente();
     }else{
-        printf("\n\n Contem numeros ou caracteres especiais em seu nome, tente novamente");
+        printf("\n Contem numeros ou caracteres especiais em seu nome, tente novamente");
         ExecNomePaciente();
     } 
     
  }
 
+void ExecDataNascimentoPaciente(){
+     printf("\n Preencha a data de nascimento:");
 
- void ExecCpfPaciente(void){
-
+     printf("\n Dia (XX): ");
+        scanf("%d", &paciente.diaNascimento);
+     printf(" Mes (XX): ");
+        scanf("%d", &paciente.mesNascimento);
+     printf(" Ano (XXXX): ");
+        scanf("%d", &paciente.anoNascimento);
+    
+    // if(verificarData(paciente.diaNascimento, paciente.mesNascimento, paciente.anoNascimento)){
+    //         prinf("correto");
+    // }else{
+    //     printf("ESTA ERRADO");
+    // }
+    verificarData(paciente.diaNascimento, paciente.mesNascimento, paciente.anoNascimento);
  }
+
+void ExecTelefonePaciente(){
+    
+}
+void ExecCpfPaciente(){
+    
+}
 
  
 

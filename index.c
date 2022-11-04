@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 #include "functions/widgets.h"
 #include "functions/verificacaoCadastro.h"
 #include "components/configs.h"
@@ -20,6 +21,8 @@ void main(void){
     // Init System
       //InicioDeLogin();
       NewCadastro();
+
+      
 
 }
 
