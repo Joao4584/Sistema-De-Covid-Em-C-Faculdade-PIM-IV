@@ -40,7 +40,7 @@ void NewCadastro(){
  }
 
 void ExecDataNascimentoPaciente(){
-     printf("\n Preencha a data de nascimento:");
+     printf("\n Coloque sua data de nascimento:");
 
      printf("\n Dia (XX): ");
         scanf("%d", &paciente.diaNascimento);
@@ -48,17 +48,21 @@ void ExecDataNascimentoPaciente(){
         scanf("%d", &paciente.mesNascimento);
      printf(" Ano (XXXX): ");
         scanf("%d", &paciente.anoNascimento);
-    
-    // if(verificarData(paciente.diaNascimento, paciente.mesNascimento, paciente.anoNascimento)){
-    //         prinf("correto");
-    // }else{
-    //     printf("ESTA ERRADO");
-    // }
-    verificarData(paciente.diaNascimento, paciente.mesNascimento, paciente.anoNascimento);
+
+    if(verificarData(paciente.mesNascimento, paciente.diaNascimento, paciente.anoNascimento)){
+        ExecTelefonePaciente();
+    }else{
+        printf(" Existe um erro na data cadastrada, tente novamente: \n");
+        ExecDataNascimentoPaciente();
+    }
  }
 
 void ExecTelefonePaciente(){
+    printf("\n Informe seu telefone (11 Digitos):");
+    scanf("%d", &paciente.telefonePaciente);
+
     
+
 }
 void ExecCpfPaciente(){
     
