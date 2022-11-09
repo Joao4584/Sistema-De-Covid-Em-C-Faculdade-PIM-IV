@@ -2,11 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-#include "functions/widgets.h"
-#include "functions/verificacaoCadastro.h"
-#include "components/configs.h"
-#include "components/menu.h"
+#include "verificacaoCadastro.h"
+#include "menu.h"
 
 typedef struct {
     char login[30];
@@ -17,7 +14,7 @@ pessoa p[1];
 void main(void){
 
     // Configurations
-       InitConfigs();
+       system("color 0a");
     // Init System
       //InicioDeLogin();
       NewCadastro();
@@ -76,4 +73,42 @@ void SenhaIncorreta(){
     }
 
 }
+
+
+// Definicao de topo para as paginas
+void TituloPersonalizado(char titulo[]){
+    
+     int bar = 196, barColum = 179, position;
+
+     printf(" ");
+     for (position = 0; position <= 45; position++){
+        switch(position){
+            case 0:
+                printf("%c", 218);
+            break;
+            case 45:
+                printf("%c\n", 191);
+            break;
+            default:
+                printf("%c", bar);
+        }
+     }
+    
+     printf(" %c %s %c\n", barColum, titulo, barColum);
+
+     printf(" ");
+     for (position = 0; position <= 45; position++){
+        switch(position){
+            case 0:
+                printf("%c", 192);
+            break;
+            case 45:
+                printf("%c\n", 217);
+            break;
+            default:
+                printf("%c", bar);
+        }
+     }
+}
+
 

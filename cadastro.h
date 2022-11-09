@@ -5,8 +5,8 @@
 
 typedef struct {
     // Dados do Paciente
-    int telefonePaciente, cpfPaciente, diaNascimento, mesNascimento, anoNascimento;
-    char nomePaciente[100];
+    int diaNascimento, mesNascimento, anoNascimento;
+    char nomePaciente[100], telefonePaciente[20], cpfPaciente[20];
 
     // Dados de Endereço
      char ruaEndereco[70], bairroEndereco[70], cidadeEndereco[70], estadoEndereco[70];
@@ -23,12 +23,12 @@ void NewCadastro(){
     ExecNomePaciente();
 }
 
- int ExecNomePaciente(){
+void ExecNomePaciente(){
     int result;
 
     printf("\n\n Nome do Paciente (Sem Acento):");
 
-    scanf("%s", &paciente.nomePaciente);
+    scanf("\n%[^\n]", &paciente.nomePaciente);
 
     if(verificarLetras(paciente.nomePaciente)){
         ExecDataNascimentoPaciente();
@@ -52,22 +52,41 @@ void ExecDataNascimentoPaciente(){
     if(verificarData(paciente.mesNascimento, paciente.diaNascimento, paciente.anoNascimento)){
         ExecTelefonePaciente();
     }else{
-        printf(" Existe um erro na data cadastrada, tente novamente: \n");
+        
         ExecDataNascimentoPaciente();
     }
  }
 
 void ExecTelefonePaciente(){
-    printf("\n Informe seu telefone (11 Digitos):");
+    printf("\n Informe o telefone do paciente (11 Digitos):");
     scanf("%d", &paciente.telefonePaciente);
 
+    if(verificarNumero(paciente.telefonePaciente)){
+        ExecCpfPaciente();
+    }else{
+        printf(" Existe um erro no Telefone cadastrado, tente novamente: \n");
+        ExecTelefonePaciente();
+    }
     
 
 }
 void ExecCpfPaciente(){
-    
+    printf("\n Informe CPF do paciente:");
+    scanf("%d", &paciente.cpfPaciente);
+    ExecCamposEndereco();
 }
 
+void ExecCamposEndereco(){
+    printf("\n ---------------------------------------------\n");
+    printf(" Informe o Endereco\n");
+    printf(" Estado:"); scanf("\n%[^\n]", &paciente.estadoEndereco);
+    printf(" Cidade:"); scanf("\n%[^\n]", &paciente.cidadeEndereco);
+    printf(" Bairro:"); scanf("\n%[^\n]", &paciente.bairroEndereco);
+    printf(" Rua:"); scanf("\n%[^\n]", &paciente.ruaEndereco);
+    printf(" Numero do endereco:"); scanf("%d", &paciente.numeroEndereco);
+    printf(" CEP:"); scanf("%d", &paciente.CepEndereco);
+
+    
+  
+}
  
-
-
