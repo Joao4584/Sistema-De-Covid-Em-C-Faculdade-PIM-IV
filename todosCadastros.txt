@@ -1,0 +1,19 @@
+==============================================
+ - Dados Pessoais
+ Nome Do Paciente: Joao Roberto;
+ Data De nascimento: 22/2/2003;
+ Telefone: 23131231231231;
+ CPF: 29141924912;
+ Email: wdoijawiod@dwioajdwia;
+ Comorbidade: Asma;
+
+ - Endereço Do Paciente
+
+ Estado: SP
+ Cidade: Jundiai
+ Bairro: Terra de Santa Cruz
+ Rua: Rua 5
+ Numero: 425
+ CEP: 1328123418
+
+ Data do Diagnostico: 10/11/2022 ;

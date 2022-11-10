@@ -118,3 +118,29 @@ int verificarCEP(char *numero){
 
    return 1;
 }
+
+int verificarEmail(char *email)
+{
+   int i;
+   int tam = strlen(email);
+   int arroba = 0;
+
+   for (i = 0; i < tam; i++){
+      
+      if (email[i] == '@'){
+         if (arroba == 0){
+            arroba = 1;
+         }else if(arroba > 0) {
+            arroba = 10;
+            break;
+         }
+      }
+   }
+
+   if(arroba == 0 || arroba == 10){
+      return 0;
+   }else{
+      return 1;
+   }
+
+}

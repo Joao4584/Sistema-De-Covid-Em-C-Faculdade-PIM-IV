@@ -5,8 +5,8 @@
 
 typedef struct {
     // Dados do Paciente
-    int diaNascimento, mesNascimento, anoNascimento;
-    char nomePaciente[100], telefonePaciente[20], cpfPaciente[20];
+    int diaNascimento, mesNascimento, anoNascimento, possuiComorbidade;
+    char nomePaciente[100], telefonePaciente[20], cpfPaciente[20], emailPaciente[100], comorbidadePaciente[50];
 
     // Dados de Endereço
      char ruaEndereco[70], bairroEndereco[70], cidadeEndereco[70], estadoEndereco[70];
@@ -59,23 +59,58 @@ void ExecDataNascimentoPaciente(){
 
 void ExecTelefonePaciente(){
     printf("\n Informe o telefone do paciente (11 Digitos):");
-    scanf("%d", &paciente.telefonePaciente);
+    scanf("%s", &paciente.telefonePaciente);
 
     if(verificarNumero(paciente.telefonePaciente)){
-        ExecCpfPaciente();
+        ExecEmailPaciente();
     }else{
         printf(" Existe um erro no Telefone cadastrado, tente novamente: \n");
         ExecTelefonePaciente();
     }
-    
-
 }
+
+void ExecEmailPaciente(){
+    printf("\n Informe o Email Do Paciente (exemplo@exemplo.com):");
+    scanf("\n%[^\n]", &paciente.emailPaciente);
+
+    if(verificarEmail(paciente.emailPaciente)){
+        ExecCpfPaciente();
+    }else{
+        printf(" Email Invalido, Tente Novamente: \n");
+        ExecEmailPaciente();
+    }
+
+
+
+    
+}
+
+// ! Walef
 void ExecCpfPaciente(){
     printf("\n Informe CPF do paciente:");
-    scanf("%d", &paciente.cpfPaciente);
-    ExecCamposEndereco();
+    scanf("%s", &paciente.cpfPaciente);
+    ExecComorbidades();
 }
 
+void ExecComorbidades(){
+    printf("\n O Paciente possui comorbidades? (Digite 1 para sim e 0 para nao): ");
+    scanf("%d", &paciente.possuiComorbidade);
+
+    if(paciente.possuiComorbidade == 1){
+        printf("\n Que Comorbidades?: ");
+        scanf("\n%[^\n]", &paciente.comorbidadePaciente);
+        ExecCamposEndereco();
+
+    }else if(paciente.possuiComorbidade == 0){
+            ExecCamposEndereco();
+    }else{
+        printf("Opcao nao encontrada, tente novamente: \n");
+        ExecComorbidades();
+    }
+}
+
+
+// ! Pendente
 void ExecCamposEndereco(){
     printf("\n ---------------------------------------------\n");
     printf(" Informe o Endereco\n");
@@ -86,7 +121,63 @@ void ExecCamposEndereco(){
     printf(" Numero do endereco:"); scanf("%d", &paciente.numeroEndereco);
     printf(" CEP:"); scanf("%d", &paciente.CepEndereco);
 
+    SalvandoCadastro();
+
+}
+
+
+
+
+// Salvando Dados No Txt
+void SalvandoCadastro(){
+    FILE *file;
+    file = fopen("todosCadastros.txt", "a");
+
+      if(file == 0){
+        file = fopen("todosCadastros.txt", "w");
+        printf("Criando Arquivo... \n");
+        SalvandoCadastro();
+      }else{
+        printf(" Adicionando Dados ao Arquivo... \n");
+      }
+   
+      fprintf(file, "==============================================\n");
+      fprintf(file, " - Dados Pessoais\n");
+      fprintf(file, " Nome Do Paciente: %s;\n", paciente.nomePaciente);
+      fprintf(file, " Data De nascimento: %d/%d/%d;\n", paciente.diaNascimento, paciente.mesNascimento, paciente.anoNascimento);
+      fprintf(file, " Telefone: %s;\n", paciente.telefonePaciente);
+      fprintf(file, " CPF: %s;\n", paciente.cpfPaciente);
+      fprintf(file, " Email: %s;\n", paciente.emailPaciente);
+      if(paciente.possuiComorbidade == 0){
+        fprintf(file, " Comorbidade: Nao tem;\n\n");
+      }else{
+        fprintf(file, " Comorbidade: %s;\n\n", paciente.comorbidadePaciente);
+      }
+      fprintf(file, " - Endereço Do Paciente\n\n");
+      fprintf(file, " Estado: %s\n", paciente.estadoEndereco);
+      fprintf(file, " Cidade: %s\n", paciente.cidadeEndereco);
+      fprintf(file, " Bairro: %s\n", paciente.bairroEndereco);
+      fprintf(file, " Rua: %s\n", paciente.ruaEndereco);
+      fprintf(file, " Numero: %d\n", paciente.numeroEndereco);
+      fprintf(file, " CEP: %d\n", paciente.CepEndereco);
+
+      SYSTEMTIME str_t;
+      GetSystemTime(&str_t);
+      int anoAtual = str_t.wYear;
+      int mesAtual = str_t.wMonth;
+      int diaAtual = str_t.wDay;
+      fprintf(file, "\n Data do Diagnostico: %d/%d/%d ;\n", diaAtual, mesAtual, anoAtual);
+
+      fclose(file);
+
     
-  
+      // TODO VERIFICAR RISCO
+      int idadeAtual = anoAtual - paciente.anoNascimento;
+     
+
+}
+
+void SalvandoCadastroDeRisco(){
+
 }
  
