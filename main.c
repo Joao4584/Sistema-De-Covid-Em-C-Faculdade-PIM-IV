@@ -16,10 +16,9 @@ void main(void){
     // Configurations
        system("color 0a");
     // Init System
-      InicioDeLogin();
-      //NewCadastro();
-
-      
+      //InicioDeLogin();
+      InitMenu();
+    
 
 }
 
@@ -28,7 +27,7 @@ void InicioDeLogin(){
    
     char login[30];
     char senha[30];
-    char titulo[50];
+    
     strcpy(p[0].login, "unip");
     strcpy(p[0].senha, "1234");
 
@@ -110,5 +109,8 @@ void TituloPersonalizado(char titulo[]){
         }
      }
 }
+
+
+
 
 

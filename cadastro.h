@@ -57,6 +57,7 @@ void ExecDataNascimentoPaciente(){
     }
  }
 
+// ! Walef
 void ExecTelefonePaciente(){
     printf("\n Informe o telefone do paciente (11 Digitos):");
     scanf("%s", &paciente.telefonePaciente);
@@ -90,7 +91,15 @@ void ExecCpfPaciente(){
     printf("\n Informe CPF do paciente:");
     scanf("%s", &paciente.cpfPaciente);
     ExecComorbidades();
+
+    //   if(verificarEmail(paciente.emailPaciente)){
+    //    ExecComorbidades();
+    // }else{
+    //     printf(" Email Invalido, Tente Novamente: \n");
+    //     ExecEmailPaciente();
+    // }
 }
+
 
 void ExecComorbidades(){
     printf("\n O Paciente possui comorbidades? (Digite 1 para sim e 0 para nao): ");
@@ -137,8 +146,6 @@ void SalvandoCadastro(){
         file = fopen("todosCadastros.txt", "w");
         printf("Criando Arquivo... \n");
         SalvandoCadastro();
-      }else{
-        printf(" Adicionando Dados ao Arquivo... \n");
       }
    
       fprintf(file, "==============================================\n");
@@ -163,21 +170,48 @@ void SalvandoCadastro(){
 
       SYSTEMTIME str_t;
       GetSystemTime(&str_t);
+      
       int anoAtual = str_t.wYear;
       int mesAtual = str_t.wMonth;
       int diaAtual = str_t.wDay;
+
       fprintf(file, "\n Data do Diagnostico: %d/%d/%d ;\n", diaAtual, mesAtual, anoAtual);
 
       fclose(file);
 
     
-      // TODO VERIFICAR RISCO
       int idadeAtual = anoAtual - paciente.anoNascimento;
-     
+      if(idadeAtual >= 65 || paciente.possuiComorbidade == 1){
+    	printf(" Diagnosticado como grupo de risco, criando arquivo.. \n");
+        SalvandoCadastroDeRisco(idadeAtual);
+      }else{
+        voltarMenu();
+      }
 
 }
 
-void SalvandoCadastroDeRisco(){
+void SalvandoCadastroDeRisco(int idadeAtual){
+      FILE *files;
+      files = fopen("grupoDeRisco.txt", "a");
+
+      if(files == 0){
+        files = fopen("grupoDeRisco.txt", "w");
+        printf(" Criando Arquivo... \n");
+        SalvandoCadastro();
+      }else{
+        printf(" Adicionando Dados ao Arquivo Do Grupo de Risco... \n");
+      }
+
+       fprintf(files, "==============================================\n");
+       fprintf(files, " CEP: %d - Idade: %d anos. \n", paciente.CepEndereco, idadeAtual);
+
+
+       fclose(files);
+       
+       voltarMenu();
 
 }
+
+
+
  

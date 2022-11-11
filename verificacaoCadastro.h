@@ -65,7 +65,7 @@ int verificarData(int mes, int dia, int ano){
 int verificarNumero(char *numero){
 
    int i;
-    int count; 
+    int count = 0; 
     
     
    for (count = 0; numero[count] != '\0'; ++count);
@@ -74,20 +74,22 @@ int verificarNumero(char *numero){
    if(count > 11 && count < 9){
    
       return 0;
-   }
-   for (i = 0; numero[i] != '\0'; i++){
-      if (numero[i] != ' ')
-      {
-         if (isalpha(numero[i]))
+   }else{
+
+      for (i = 0; numero[i] != '\0'; i++){
+         if (numero[i] != ' ')
          {
-            return 0;
+            if (isalpha(numero[i]))
+            {
+               return 0;
+            }
          }
       }
+
+      // Se o Texto Conter somente string
+
+      return 1;
    }
-
-   // Se o Texto Conter somente string
-
-   return 1;
 }
 
 
@@ -119,8 +121,7 @@ int verificarCEP(char *numero){
    return 1;
 }
 
-int verificarEmail(char *email)
-{
+int verificarEmail(char *email){
    int i;
    int tam = strlen(email);
    int arroba = 0;
