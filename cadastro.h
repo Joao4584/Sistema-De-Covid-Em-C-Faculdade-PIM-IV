@@ -9,8 +9,7 @@ typedef struct {
     char nomePaciente[100], telefonePaciente[20], cpfPaciente[20], emailPaciente[100], comorbidadePaciente[50];
 
     // Dados de Endereço
-     char ruaEndereco[70], bairroEndereco[70], cidadeEndereco[70], estadoEndereco[70];
-     int numeroEndereco, CepEndereco;
+     char ruaEndereco[70], bairroEndereco[70], cidadeEndereco[70], estadoEndereco[70], numeroEndereco[30], CepEndereco[60];
 
 } cadastro;
 cadastro paciente;
@@ -127,8 +126,8 @@ void ExecCamposEndereco(){
     printf(" Cidade:"); scanf("\n%[^\n]", &paciente.cidadeEndereco);
     printf(" Bairro:"); scanf("\n%[^\n]", &paciente.bairroEndereco);
     printf(" Rua:"); scanf("\n%[^\n]", &paciente.ruaEndereco);
-    printf(" Numero do endereco:"); scanf("%d", &paciente.numeroEndereco);
-    printf(" CEP:"); scanf("%d", &paciente.CepEndereco);
+    printf(" Numero do endereco:"); scanf("\n%[^\n]", &paciente.numeroEndereco);
+    printf(" CEP:"); scanf("\n%[^\n]", &paciente.CepEndereco);
 
     SalvandoCadastro();
 
@@ -160,13 +159,13 @@ void SalvandoCadastro(){
       }else{
         fprintf(file, " Comorbidade: %s;\n\n", paciente.comorbidadePaciente);
       }
-      fprintf(file, " - Endereço Do Paciente\n\n");
+      fprintf(file, " - Endereco Do Paciente\n\n");
       fprintf(file, " Estado: %s\n", paciente.estadoEndereco);
       fprintf(file, " Cidade: %s\n", paciente.cidadeEndereco);
       fprintf(file, " Bairro: %s\n", paciente.bairroEndereco);
       fprintf(file, " Rua: %s\n", paciente.ruaEndereco);
-      fprintf(file, " Numero: %d\n", paciente.numeroEndereco);
-      fprintf(file, " CEP: %d\n", paciente.CepEndereco);
+      fprintf(file, " Numero: %s\n", paciente.numeroEndereco);
+      fprintf(file, " CEP: %s\n", paciente.CepEndereco);
 
       SYSTEMTIME str_t;
       GetSystemTime(&str_t);
@@ -203,7 +202,7 @@ void SalvandoCadastroDeRisco(int idadeAtual){
       }
 
        fprintf(files, "==============================================\n");
-       fprintf(files, " CEP: %d - Idade: %d anos. \n", paciente.CepEndereco, idadeAtual);
+       fprintf(files, " CEP: %s - Idade: %d anos. \n", paciente.CepEndereco, idadeAtual);
 
 
        fclose(files);

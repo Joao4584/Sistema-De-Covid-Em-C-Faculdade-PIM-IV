@@ -3,8 +3,7 @@
 #include <stdlib.h>
 
 #include "cadastro.h"
-#include "registrosDeRisco.h"
-#include "registrosGerais.h"
+#include "registros.h"
 
 // Menu Do Programa
 void InitMenu(){
@@ -48,7 +47,6 @@ void InitMenu(){
 // Componente Padrao
 void voltarMenu(){
     int i;
-    printf("\n Cadastro feito com sucesso.\n\n");
     printf(" 1 - Voltar Para O Menu; \n");
     printf(" 2 - Finalizar Sessao; \n");
 
