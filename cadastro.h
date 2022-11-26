@@ -56,7 +56,7 @@ void ExecDataNascimentoPaciente(){
     }
  }
 
-// ! Walef
+
 void ExecTelefonePaciente(){
     printf("\n Informe o telefone do paciente (11 Digitos):");
     scanf("%s", &paciente.telefonePaciente);
@@ -85,18 +85,23 @@ void ExecEmailPaciente(){
     
 }
 
-// ! Walef
 void ExecCpfPaciente(){
     printf("\n Informe CPF do paciente:");
     scanf("%s", &paciente.cpfPaciente);
-    ExecComorbidades();
 
-    //   if(verificarEmail(paciente.emailPaciente)){
-    //    ExecComorbidades();
-    // }else{
-    //     printf(" Email Invalido, Tente Novamente: \n");
-    //     ExecEmailPaciente();
-    // }
+     if ((int) paciente.cpfPaciente[9] - 48 == calculoCPF1(paciente.cpfPaciente)) {
+        if ((int) paciente.cpfPaciente[10] - 48 == calculoCPF2(paciente.cpfPaciente)) {
+            printf(" CPF VALIDO!\n");
+            ExecComorbidades();
+        } else {
+            printf(" CPF INVALIDO!\n\n");
+            ExecCpfPaciente();
+        }
+    } else {
+        printf(" CPF INVALIDO!\n\n");
+        ExecCpfPaciente();
+    }
+    
 }
 
 
@@ -115,6 +120,7 @@ void ExecComorbidades(){
         printf("Opcao nao encontrada, tente novamente: \n");
         ExecComorbidades();
     }
+
 }
 
 
@@ -126,10 +132,21 @@ void ExecCamposEndereco(){
     printf(" Cidade:"); scanf("\n%[^\n]", &paciente.cidadeEndereco);
     printf(" Bairro:"); scanf("\n%[^\n]", &paciente.bairroEndereco);
     printf(" Rua:"); scanf("\n%[^\n]", &paciente.ruaEndereco);
-    printf(" Numero do endereco:"); scanf("\n%[^\n]", &paciente.numeroEndereco);
-    printf(" CEP:"); scanf("\n%[^\n]", &paciente.CepEndereco);
+    printf(" Numero do endereco (Somente Numeros):"); scanf("\n%[^\n]", &paciente.numeroEndereco);
+    printf(" CEP (8 Digitos):"); scanf("\n%[^\n]", &paciente.CepEndereco);
 
-    SalvandoCadastro();
+    if(verificaCEP(paciente.CepEndereco)){
+        if(verificaContemNumero(paciente.numeroEndereco)){
+            SalvandoCadastro();
+
+        }else{
+            ExecCamposEndereco();
+        }
+    }else{
+        ExecCamposEndereco();
+    }
+
+    
 
 }
 

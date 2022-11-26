@@ -71,7 +71,7 @@ int verificarNumero(char *numero){
    for (count = 0; numero[count] != '\0'; ++count);
 
 
-   if(count > 11 && count < 9){
+   if(count != 11){
    
       return 0;
    }else{
@@ -93,33 +93,60 @@ int verificarNumero(char *numero){
 }
 
 
-int verificarCEP(char *numero){
+int verificaCEP(char *numero){
 
    int i;
-    int count; 
+    int count = 0; 
     
     
    for (count = 0; numero[count] != '\0'; ++count);
 
 
-   if(count > 4 && count < 15){
-   
+   if(count != 8){
+      printf("O CEP nao contem o numero de digitos correto (8 digitos), preencha novamente; \n\n");
       return 0;
-   }
-   for (i = 0; numero[i] != '\0'; i++){
-      if (numero[i] != ' ')
-      {
-         if (isalpha(numero[i]))
+
+   }else{
+
+      for (i = 0; numero[i] != '\0'; i++){
+         if (numero[i] != ' ')
          {
-            return 0;
+            if (isalpha(numero[i]))
+            {
+               return 0;
+            }
          }
       }
+
+      // Se o Texto Conter somente string
+
+      return 1;
    }
-
-   // Se o Texto Conter somente string
-
-   return 1;
 }
+
+int verificaContemNumero(char *numero){
+
+   int i;
+   
+      for (i = 0; numero[i] != '\0'; i++){
+         if (numero[i] != ' ')
+         {
+            if (isalpha(numero[i]))
+            {
+               printf("O Campo  Numero De Endereco contem caracteres de texto \n\n");
+               return 0;
+            }
+         }
+      }
+
+      // Se o Texto Conter somente string
+
+      return 1;
+ 
+}
+
+
+
 
 int verificarEmail(char *email){
    int i;
@@ -144,4 +171,46 @@ int verificarEmail(char *email){
       return 1;
    }
 
+}
+
+
+// Verificação de CPF
+int calculoCPF1(char cpf[11]) {
+
+    int calculoCPF1(char cpf[12]);
+    int calculoCPF2(char cpf[12]);
+
+    int soma = 0, i = 10;
+    char *ptr = cpf;
+
+    while (i > 1) {
+        int n = (int) *ptr - 48;
+        soma = soma + i * n;
+        ptr++;
+        i--;
+    }
+
+    if (soma % 11 < 2) {
+        return 0;
+    } else {
+        return 11 - (soma % 11);
+    }
+}
+
+int calculoCPF2(char cpf[11]) {
+    int soma = 0, i = 11;
+    char *ptr = cpf;
+
+    while (i > 1) {
+        int n = (int) *ptr - 48;
+        soma = soma + i * n;
+        ptr++;
+        i--;
+    }
+
+    if (soma % 11 < 2) {
+        return 0;
+    } else {
+        return 11 - (soma % 11);
+    }
 }
