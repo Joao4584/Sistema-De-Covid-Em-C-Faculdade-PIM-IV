@@ -181,7 +181,7 @@ void SalvandoCadastro(){
     
       int idadeAtual = anoAtual - paciente.anoNascimento;
       if(idadeAtual >= 65 || paciente.possuiComorbidade == 1){
-    	printf(" Diagnosticado como grupo de risco, criando arquivo.. \n");
+    	printf("\n Diagnosticado como grupo de risco, criando arquivo.. \n");
         SalvandoCadastroDeRisco(idadeAtual);
       }else{
         voltarMenu();
@@ -195,10 +195,10 @@ void SalvandoCadastroDeRisco(int idadeAtual){
 
       if(files == 0){
         files = fopen("grupoDeRisco.txt", "w");
-        printf(" Criando Arquivo... \n");
+        printf("\n Criando Arquivo... \n");
         SalvandoCadastro();
       }else{
-        printf(" Adicionando Dados ao Arquivo Do Grupo de Risco... \n");
+        printf("\n Adicionando Dados ao Arquivo Do Grupo de Risco... \n");
       }
 
        fprintf(files, "==============================================\n");

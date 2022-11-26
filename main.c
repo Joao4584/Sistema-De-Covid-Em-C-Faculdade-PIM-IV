@@ -16,8 +16,8 @@ void main(void){
     // Configurations
        system("color 0a");
     // Init System
-      //InicioDeLogin();
-      InitMenu();
+      InicioDeLogin();
+    
     
 
 }

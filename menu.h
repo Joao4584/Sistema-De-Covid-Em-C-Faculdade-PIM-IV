@@ -9,7 +9,7 @@
 void InitMenu(){
 
     int option;
-
+    
     TituloPersonalizado("            Painel de Controle            ");
 
     printf("\n  Menu \n");
