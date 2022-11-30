@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./header-banner.png" width="100%" />
+  <img src="./assets/header-banner.png" width="100%" />
 </p>
 
 <h1 align="center">Sistema De Cadastro Para Pacientes Com Covid (Unip)</h1>
@@ -30,7 +30,7 @@
 - ⚙️ CMD Console Exec
 - 💅 Theme Green Dark
 
-<img src="./container-banner.png" alt="Sample preview running the app showing Diego Fernandes happy on the app screen with Visual Studio Code open in the background">
+<img src="./assets/container-banner.png" alt="Sample preview running the app showing Diego Fernandes happy on the app screen with Visual Studio Code open in the background">
 
 
 
