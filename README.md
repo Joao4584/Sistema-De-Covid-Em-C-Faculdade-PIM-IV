@@ -32,23 +32,6 @@
 
 <img src="./container-banner.png" alt="Sample preview running the app showing Diego Fernandes happy on the app screen with Visual Studio Code open in the background">
 
-# Installation
-
-- [Download](https://github.com/maykbrito/mini-video-me/releases)
-
-⚠️ **For MacOS**, move the extracted app to the **Applications** folder, open your terminal and run the following command to sign the app
-```bash
-codesign --force --deep --sign - /Applications/Mini\ Video\ Me.app
-```
-Wait until the command finishes, then open the app and allow the camera permissions asked you. 🚀
-
-# Usage & settings
-
-After running for the first time you can access the app settings through the **tray menu** and click on `Settings` to change default shortcuts, camera size, zoom, shapes, themes, languages etc.
-
-## Default shortcuts
-
-> ⚠️ **For Linux/Windows users:** if you're not new to Mini Video Me, you'll probably need to update the shortcuts manually. For this, open the camera settings in `tray menu` > `Settings` and update it with the new default shortcuts or others that you like, and the operating system allows, or just select `Reset Settings`.
 
 
 # Author
