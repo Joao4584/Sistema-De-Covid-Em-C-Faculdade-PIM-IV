@@ -12,14 +12,10 @@ typedef struct {
 pessoa p[1];
 
 void main(void){
-
     // Configurations
        system("color 0a");
     // Init System
       InicioDeLogin();
-    
-    
-
 }
 
 // Executa o sistema de login
@@ -76,9 +72,7 @@ void SenhaIncorreta(){
 
 // Definicao de topo para as paginas
 void TituloPersonalizado(char titulo[]){
-    
      int bar = 196, barColum = 179, position;
-
      printf(" ");
      for (position = 0; position <= 45; position++){
         switch(position){
@@ -92,9 +86,7 @@ void TituloPersonalizado(char titulo[]){
                 printf("%c", bar);
         }
      }
-    
      printf(" %c %s %c\n", barColum, titulo, barColum);
-
      printf(" ");
      for (position = 0; position <= 45; position++){
         switch(position){

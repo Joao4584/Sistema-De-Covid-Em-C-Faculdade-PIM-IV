@@ -23,8 +23,7 @@ void NewCadastro(){
 }
 
 void ExecNomePaciente(){
-    int result;
-
+    
     printf("\n\n Nome do Paciente (Sem Acento):");
 
     scanf("\n%[^\n]", &paciente.nomePaciente);
@@ -123,8 +122,6 @@ void ExecComorbidades(){
 
 }
 
-
-// ! Pendente
 void ExecCamposEndereco(){
     printf("\n ---------------------------------------------\n");
     printf(" Informe o Endereco\n");
